@@ -1,0 +1,47 @@
+/* src/components/Card.css */
+.custom-card {
+    background-color: white; /* Fundo branco do cartão */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    overflow: hidden; /* Esconder overflow */
+    transition: transform 0.3s ease; /* Transição suave para transformação */
+    margin: 10px; /* Margem entre os cartões */
+  }
+  
+  .custom-card:hover {
+    transform: translateY(-2px); /* Leve movimento para cima ao passar o mouse */
+  }
+  
+  .custom-card .ion-card-header {
+    background-color: #0072C6; /* Cor de fundo azul do cabeçalho */
+    color: white; /* Texto em branco */
+    padding: 16px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    border-top-left-radius: 8px; /* Bordas arredondadas do cabeçalho */
+    border-top-right-radius: 8px; /* Bordas arredondadas do cabeçalho */
+  }
+  
+  .custom-card .ion-card-title {
+    font-size: 1.25rem; /* Tamanho da fonte do título */
+    margin: 0; /* Remover margens */
+  }
+  
+  .custom-card .ion-card-content {
+    padding: 16px; /* Espaçamento interno do conteúdo */
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: right; /* Centraliza os ícones */
+    padding: 20px 16px; /* Espaçamento interno do rodapé */
+    border-top: 1px solid #e0e0e0; /* Linha de separação */
+  }
+  
+  .card-footer .icon {
+    color: #333; /* Cor dos ícones */
+    font-size: 20px; /* Tamanho dos ícones */
+    margin: 0 10px; /* Espaço entre os ícones */
+    cursor: pointer; /* Cursor de ponteiro ao passar sobre os ícones */
+  }
+  
