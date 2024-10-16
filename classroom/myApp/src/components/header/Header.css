@@ -1,0 +1,10 @@
+
+.ion-button {
+    --padding-start: 8px;
+    --padding-end: 8px;
+  }
+  
+  .ion-title {
+    --ion-title-padding-start: 10px;
+  }
+  

@@ -1,19 +1,17 @@
-// src/pages/Home.tsx
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonPage } from '@ionic/react';
+import Header from '../components/header/Header'; // Importa o componente Header
 import Card from '../components/Card'; // Importa o componente Card
 
 const Home: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        
-        <IonToolbar>
-        <IonTitle>Google Classroom</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      {/* Reutiliza o componente Header */}
+      <Header />
+
       <IonContent>
-        <div className="grid">
+        <div className="grid-container">
+          {/* Cards de turmas */}
           <Card
             href="/turma/estrutura-de-software"
             title="IJ - Estrutura de Software"

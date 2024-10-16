@@ -3,20 +3,23 @@ import { IonMenu, IonContent, IonList, IonItem, IonLabel } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 
 interface MenuProps {
-  drawerOpen: boolean;
-  handleDrawerToggle: (open: boolean) => void;
+  handleDrawerToggle?: (open: boolean) => void; // Torna opcional o handleDrawerToggle
 }
 
-const Menu: React.FC<MenuProps> = ({ drawerOpen, handleDrawerToggle }) => {
+const Menu: React.FC<MenuProps> = ({ handleDrawerToggle }) => {
   const history = useHistory();
 
+  // Função para fechar o menu e navegar para a rota correspondente
   const handleMenuClose = (path?: string) => {
-    handleDrawerToggle(false);
+    if (handleDrawerToggle) {
+      handleDrawerToggle(false); // Fecha o menu se o controle estiver presente
+    }
     if (path) {
-      history.push(path);
+      history.push(path); // Navega para a rota ao clicar
     }
   };
 
+  // Itens do menu
   const menuItems = [
     { text: 'Início', path: '/' },
     { text: 'Agenda', path: '/agenda' },
@@ -29,7 +32,7 @@ const Menu: React.FC<MenuProps> = ({ drawerOpen, handleDrawerToggle }) => {
   ];
 
   return (
-    <IonMenu contentId="main" onIonDidClose={() => handleDrawerToggle(false)}>
+    <IonMenu contentId="main" onIonDidClose={() => handleDrawerToggle && handleDrawerToggle(false)}>
       <IonContent>
         <IonList>
           {menuItems.map((item, index) => (

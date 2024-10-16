@@ -1,31 +1,53 @@
-// src/components/Header.tsx
 import React from 'react';
 import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon } from '@ionic/react';
-import { notificationsOutline, appsOutline, personOutline } from 'ionicons/icons'; // Importa ícones do Ionic
+import { menuOutline, addOutline, appsOutline, personOutline } from 'ionicons/icons'; // Ícones do Ionic
+import { menuController } from '@ionic/core'; // Importa o controlador do menu do pacote @ionic/core
+import image from '../../../public/icon.png'
 
 const Header: React.FC = () => {
+
+  const openMenu = async () => {
+    await menuController.open(); // Abre o menu lateral quando o botão é clicado
+  };
+
   return (
     <IonHeader>
       <IonToolbar>
-        {/* Botões no lado esquerdo */}
+        {/* Menu e logo no lado esquerdo */}
         <IonButtons slot="start">
-          <IonButton>
-            <IonIcon src="../imagens/icon2.png" />
+          {/* Botão de menu (hambúrguer) */}
+          <IonButton onClick={openMenu}> {/* Ação de abrir o menu */}
+            <IonIcon icon={menuOutline} />
           </IonButton>
+
+          {/* Logo customizada */}
+          <IonButton>
+            <img src={image}alt="Logo" style={{ width: '24px', height: '24px', marginRight: '1px' }} />
+            <link rel="shortcut icon" type="image/png" href="/icon.png" />
+
+          </IonButton>
+
+          {/* Título */}
+          <IonTitle style={{ fontSize: '18px', fontWeight: 'normal', display: 'flex', alignItems: 'left', marginLeft: '1px' }}>
+            Google Classroom
+          </IonTitle>
         </IonButtons>
-        
-        <IonTitle>Google Sala de Aula</IonTitle>
-        
-        {/* Botões no lado direito */}
+
+        {/* Ícones no lado direito */}
         <IonButtons slot="end">
+          {/* Ícone de adicionar (sinal de mais) */}
           <IonButton>
-            <IonIcon icon={notificationsOutline} />
+            <IonIcon icon={addOutline} />
           </IonButton>
+
+          {/* Ícone de aplicativos */}
           <IonButton>
             <IonIcon icon={appsOutline} />
           </IonButton>
+
+          {/* Avatar do usuário (imagem) */}
           <IonButton>
-            <IonIcon icon={personOutline} />
+          <IonIcon icon={personOutline} />
           </IonButton>
         </IonButtons>
       </IonToolbar>
