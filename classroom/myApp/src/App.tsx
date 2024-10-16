@@ -21,6 +21,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Turma from './components/Turma';
 
 setupIonicReact();
 
@@ -28,8 +29,9 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route path="/home" component={Home} exact />
-        <Route path="/" render={() => <Redirect to="/home" />} exact />
+      <Route path="/home" component={Home} exact={true} />
+        <Route path="/turma/:id" component={Turma} exact={true} />
+        <Redirect exact from="/" to="/home" />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

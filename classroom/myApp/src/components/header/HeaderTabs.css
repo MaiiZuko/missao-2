@@ -1,0 +1,18 @@
+/* src/components/HeaderTabs.css */
+.header-tabs {
+    --background: #0072C6; /* Cor de fundo do segmento */
+    --color: white; /* Cor do texto das abas */
+    margin: 16px; /* Margem ao redor do segmento */
+    border-radius: 8px; /* Bordas arredondadas */
+  }
+  
+  .header-tabs .ion-segment-button {
+    --background: transparent; /* Fundo transparente para botões */
+    --color: white; /* Cor do texto */
+  }
+  
+  .header-tabs .ion-segment-button[aria-selected="true"] {
+    --background: rgba(255, 255, 255, 0.2); /* Fundo ao selecionar */
+    --color: #fff; /* Cor do texto ao selecionar */
+  }
+  

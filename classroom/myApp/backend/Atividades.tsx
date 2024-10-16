@@ -1,11 +1,13 @@
-"use client";
-
+// src/backend/Atividades.tsx
 import React, { useEffect, useState } from 'react';
-import { getTurmaAtividades } from '../src/app/mockData';
-import AssignmentIcon from '@mui/icons-material/Assignment'; // Ícone de atividade genérico
+import { getTurmaAtividades } from './mockData'; // Ajuste o caminho conforme necessário
 
-const Atividades = ({ turmaId }) => {
-  const [atividades, setAtividades] = useState([]);
+interface AtividadesProps {
+  turmaId: string; // Definindo a propriedade que receberá o ID da turma
+}
+
+const Atividades: React.FC<AtividadesProps> = ({ turmaId }) => {
+  const [atividades, setAtividades] = useState<string[]>([]); // Definindo o estado como um array de strings
 
   useEffect(() => {
     const fetchAtividades = async () => {
@@ -17,7 +19,7 @@ const Atividades = ({ turmaId }) => {
   }, [turmaId]);
 
   // Função para gerar data fictícia para cada atividade
-  const gerarDataFicticia = (index) => {
+  const gerarDataFicticia = (index: number) => {
     const diasAtras = (index + 1) * 7; // Gera datas fictícias com 7 dias de diferença
     const hoje = new Date();
     const data = new Date(hoje.setDate(hoje.getDate() - diasAtras));
@@ -68,7 +70,6 @@ const Atividades = ({ turmaId }) => {
           >
             <div style={{ display: 'flex', alignItems: 'center' }}>
               {/* Ícone da atividade */}
-              <AssignmentIcon style={{ marginRight: '10px', color: '#9e9e9e' }} />
               <span style={{ fontWeight: 'normal', color: '#333' }}>{atividade}</span>
             </div>
             <span style={{ fontSize: '14px', color: '#666' }}>{gerarDataFicticia(index)}</span> {/* Data fictícia */}

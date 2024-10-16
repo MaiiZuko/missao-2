@@ -1,12 +1,13 @@
-"use client";
-
+// src/backend/Alunos.tsx
 import React, { useEffect, useState } from 'react';
-import { getTurmaAlunos } from '../mockData';
-import MailOutlineIcon from '@mui/icons-material/MailOutline'; 
-import PersonIcon from '@mui/icons-material/Person'; 
+import { getTurmaAlunos } from './mockData'; // Ajuste o caminho conforme necessário
 
-const Alunos = ({ turmaId }) => {
-  const [alunos, setAlunos] = useState([]);
+interface AlunosProps {
+  turmaId: string; // Definindo a propriedade que receberá o ID da turma
+}
+
+const Alunos: React.FC<AlunosProps> = ({ turmaId }) => {
+  const [alunos, setAlunos] = useState<string[]>([]); // Estado como um array de strings
 
   useEffect(() => {
     const fetchAlunos = async () => {
@@ -41,7 +42,7 @@ const Alunos = ({ turmaId }) => {
         }}
       >
         <h2 style={{ margin: 0, fontWeight: 'bold', fontSize: '24px', fontFamily: 'Roboto, sans-serif' }}>Colegas de turma</h2>
-        <span style={{ fontSize: '16x', color: '#666', fontFamily: 'Roboto, sans-serif' }}>{alunos.length} estudantes</span>
+        <span style={{ fontSize: '16px', fontFamily: 'Roboto, sans-serif' }}>{alunos.length} estudantes</span>
       </div>
 
       <ul style={{ listStyleType: 'none', padding: 0, width: '100%', maxWidth: '900px' }}>
@@ -58,10 +59,8 @@ const Alunos = ({ turmaId }) => {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <PersonIcon style={{ marginRight: '10px', color: '#9e9e9e' }} />
               <span style={{ fontWeight: 'normal', color: '#333' }}>{aluno}</span>
             </div>
-            <MailOutlineIcon style={{ fontSize: '20px', color: '#333' }} /> 
           </li>
         ))}
       </ul>
